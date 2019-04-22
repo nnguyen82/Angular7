@@ -1,0 +1,22 @@
+li .glyphicon {
+  margin-right: 10px;
+}
+
+/* Highlighting rules for nav menu items */
+li.link-active a,
+li.link-active a:hover,
+li.link-active a:focus {
+  background-color: white;
+  color: white;
+}
+
+.menuButton {
+  width: 250px;
+  color: white;
+  font-size: large;
+  text-align: left
+}
+
+.menuBackground {
+  background-color: #3071a9;
+}

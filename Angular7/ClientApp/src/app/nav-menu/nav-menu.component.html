@@ -1,0 +1,26 @@
+<nav class="navbar menuBackground">
+  <a class="navbar-brand"><b style="font-size:larger; color:floralwhite" [routerLink]='["/"]'>Demo UI</b></a>
+  <form class="form-inline col-sm-7">
+    <input class="form-control col-sm-6" type="search" placeholder="Search" aria-label="Search">
+    &nbsp;<button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+  <nav class="navbar navbar-dark" (click)="display = true">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</nav>
+
+<p-sidebar [(visible)]="display" position="right">
+  <div><button class="btn menuBackground navbar-btn menuButton" [routerLink]='["/"]'><i class="pi pi-chart-bar"></i>  Dash board</button></div>
+  <br />
+  <div><button class="btn menuBackground navbar-btn menuButton" [routerLink]='["/workorder"]'><i class="pi pi-folder"></i> Work order</button></div>
+  <br />
+  <div><button class="btn menuBackground navbar-btn menuButton" [routerLink]='["/task"]'><i class="pi pi-folder"></i> Task</button></div>
+  <br />
+  <div><button class="btn menuBackground navbar-btn menuButton"><i class="pi pi-user"></i> Vendor</button></div>
+  <br />
+  <div><button class="btn menuBackground navbar-btn menuButton"><i class="pi pi-user"></i> CRM</button></div>
+  <br />
+  <div><button class="btn menuBackground navbar-btn menuButton"><i class="pi pi-briefcase"></i> Accountant</button></div>
+</p-sidebar>
