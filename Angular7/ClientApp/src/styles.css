@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+.ui-panel-titlebar {
+  background-color: #3071a9 !important;
+  color: white !important;
+}
+
+.ui-menu {
+  width: auto !important;
+  margin: 0px !important;
+  border: none !important;
+  background-color: #3071a9 !important;
+}
+
+.menuBackGround {
+  margin: 0px !important;
+  border: none !important;
+  background-color: #3071a9 !important;
+}
+
+.ui-menu-list {
+  background-color: black;
+}
+
+.ui-menuitem-text {
+  color: white !important;
+}
+
+.ui-menuitem-icon {
+  color: white !important;
+  font-size: large !important;
+  margin-right: 1em;
+}
+
+body .ui-menu .ui-menuitem :hover {
+  background-color: #2F8EE5 !important;
+}
+
+.menu-selected {
+  background-color: #F15B2A !important;
+  color: #ffffff;
+}

@@ -9,6 +9,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var NavMenuComponent = /** @class */ (function () {
     function NavMenuComponent() {
+        this.menuItems = [
+            { label: 'Dashboard', icon: 'pi pi-chart-bar', routerLink: ['/'] },
+            { label: 'Work order', icon: 'pi pi-folder', routerLink: ['/workorder'] },
+            { label: 'Task', icon: 'pi pi-folder', routerLink: ['/task'] },
+            { label: 'Vendor', icon: 'pi pi-user', routerLink: ['/vendor'] },
+            { label: 'CRM', icon: 'pi pi-user', routerLink: ['/crm'] },
+            { label: 'Accountant', icon: 'pi pi-briefcase', routerLink: ['/accountant'] }
+        ];
     }
     NavMenuComponent = __decorate([
         core_1.Component({

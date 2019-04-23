@@ -1,15 +1,26 @@
-<h3>Dashboard</h3>
-<div class="row">
-  <div class="col-md-6">
-    <p-chart type="pie" [data]="pie1"></p-chart>
-  </div>
-  <div class="col-md-6">
-    <p-chart type="pie" [data]="pie2"></p-chart>
-  </div>
+<div class="ui-g">
+
+  <at-statistic label="My Hours" value="132" icon="fa fa-clock-o" colour="#00ACAC" class="ui-g-12 ui-md-6 ui-lg-3"></at-statistic>
+
+  <at-statistic label="Stories" value="35" icon="pi pi-users" colour="#2F8EE5" class="ui-g-12 ui-md-6 ui-lg-3"></at-statistic>
+
+  <at-statistic label="Remaining" value="23" icon="fa fa-hourglass-half" colour="#6C76AF" class="ui-g-12 ui-md-6 ui-lg-3"></at-statistic>
+
+  <at-statistic label="Sprints" value="4" icon="fa fa-area-chart" colour="#EFA64C" class="ui-g-12 ui-md-6 ui-lg-3"></at-statistic>
+
 </div>
 
-<div class="row">
-  <div class="col-md-12">
+<div class="ui-g">
+  <p-panel class="ui-g-12 ui-md-6" header="Pie Chart 1">
+    <p-chart type="pie" [data]="pie1"></p-chart>
+  </p-panel>
+  <p-panel class="ui-g-12 ui-md-6" header="Pie Chart 2">
+    <p-chart type="pie" [data]="pie2"></p-chart>
+  </p-panel>
+</div>
+
+<div class="ui-g">
+  <p-panel class="ui-g-12" header="Bar Chart">
     <p-chart type="bar" [data]="bar1"></p-chart>
-  </div>
+  </p-panel>
 </div>

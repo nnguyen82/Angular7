@@ -1,4 +1,4 @@
-<nav class="navbar menuBackground">
+<nav class="navbar menuBackGround">
   <a class="navbar-brand"><b style="font-size:larger; color:floralwhite" [routerLink]='["/"]'>Demo UI</b></a>
   <form class="form-inline col-sm-7">
     <input class="form-control col-sm-6" type="search" placeholder="Search" aria-label="Search">
@@ -11,8 +11,10 @@
   </nav>
 </nav>
 
-<p-sidebar [(visible)]="display" position="right">
-  <div><button class="btn menuBackground navbar-btn menuButton" [routerLink]='["/"]'><i class="pi pi-chart-bar"></i>  Dash board</button></div>
+<p-sidebar [(visible)]="display" position="right" styleClass="menuBackGround">
+  <p-menu [model]="menuItems"></p-menu>
+
+  <!--<div><button class="btn menuBackground navbar-btn menuButton" [routerLink]='["/"]'><i class="pi pi-chart-bar"></i>  Dash board</button></div>
   <br />
   <div><button class="btn menuBackground navbar-btn menuButton" [routerLink]='["/workorder"]'><i class="pi pi-folder"></i> Work order</button></div>
   <br />
@@ -22,5 +24,5 @@
   <br />
   <div><button class="btn menuBackground navbar-btn menuButton"><i class="pi pi-user"></i> CRM</button></div>
   <br />
-  <div><button class="btn menuBackground navbar-btn menuButton"><i class="pi pi-briefcase"></i> Accountant</button></div>
+  <div><button class="btn menuBackground navbar-btn menuButton"><i class="pi pi-briefcase"></i> Accountant</button></div>-->
 </p-sidebar>
