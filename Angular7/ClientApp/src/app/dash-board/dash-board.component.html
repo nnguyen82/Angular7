@@ -1,26 +1,27 @@
-<div class="ui-g">
+<div class="tabTitlePanel">
+  <p-tabMenu [model]="items"></p-tabMenu>
+  <div class="tabContent">
+    <div class="ui-g">
+      <app-statistic label="My Hours" value="132" icon="fas fa-clock" colour="#00ACAC" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
+      <app-statistic label="Stories" value="35" icon="fas fa-users" colour="#2F8EE5" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
+      <app-statistic label="Remaining" value="23" icon="fas fa-hourglass-half" colour="#6C76AF" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
+      <app-statistic label="Sprints" value="4" icon="fas fa-chart-area" colour="#EFA64C" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
+    </div>
 
-  <at-statistic label="My Hours" value="132" icon="fa fa-clock-o" colour="#00ACAC" class="ui-g-12 ui-md-6 ui-lg-3"></at-statistic>
+    <div class="ui-g">
+      <p-panel class="ui-g-12 ui-md-6" header="Pie Chart 1">
+        <p-chart type="pie" [data]="pie1"></p-chart>
+      </p-panel>
+      <p-panel class="ui-g-12 ui-md-6" header="Pie Chart 2">
+        <p-chart type="pie" [data]="pie2"></p-chart>
+      </p-panel>
+    </div>
 
-  <at-statistic label="Stories" value="35" icon="pi pi-users" colour="#2F8EE5" class="ui-g-12 ui-md-6 ui-lg-3"></at-statistic>
-
-  <at-statistic label="Remaining" value="23" icon="fa fa-hourglass-half" colour="#6C76AF" class="ui-g-12 ui-md-6 ui-lg-3"></at-statistic>
-
-  <at-statistic label="Sprints" value="4" icon="fa fa-area-chart" colour="#EFA64C" class="ui-g-12 ui-md-6 ui-lg-3"></at-statistic>
-
+    <div class="ui-g">
+      <p-panel class="ui-g-12" header="Bar Chart">
+        <p-chart type="bar" [data]="bar1"></p-chart>
+      </p-panel>
+    </div>
+  </div>
 </div>
 
-<div class="ui-g">
-  <p-panel class="ui-g-12 ui-md-6" header="Pie Chart 1">
-    <p-chart type="pie" [data]="pie1"></p-chart>
-  </p-panel>
-  <p-panel class="ui-g-12 ui-md-6" header="Pie Chart 2">
-    <p-chart type="pie" [data]="pie2"></p-chart>
-  </p-panel>
-</div>
-
-<div class="ui-g">
-  <p-panel class="ui-g-12" header="Bar Chart">
-    <p-chart type="bar" [data]="bar1"></p-chart>
-  </p-panel>
-</div>

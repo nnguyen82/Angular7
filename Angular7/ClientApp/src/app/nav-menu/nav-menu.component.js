@@ -9,15 +9,24 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var NavMenuComponent = /** @class */ (function () {
     function NavMenuComponent() {
-        this.menuItems = [
-            { label: 'Dashboard', icon: 'pi pi-chart-bar', routerLink: ['/'] },
-            { label: 'Work order', icon: 'pi pi-folder', routerLink: ['/workorder'] },
-            { label: 'Task', icon: 'pi pi-folder', routerLink: ['/task'] },
-            { label: 'Vendor', icon: 'pi pi-user', routerLink: ['/vendor'] },
-            { label: 'CRM', icon: 'pi pi-user', routerLink: ['/crm'] },
-            { label: 'Accountant', icon: 'pi pi-briefcase', routerLink: ['/accountant'] }
-        ];
     }
+    NavMenuComponent.prototype.ngOnInit = function () {
+        var handleSelected = function (event) {
+            var allMenus = jQuery(event.originalEvent.target).closest('ul');
+            var allLinks = allMenus.find('.menu-selected');
+            allLinks.removeClass("menu-selected");
+            var selected = jQuery(event.originalEvent.target).closest('a');
+            selected.addClass('menu-selected');
+        };
+        this.menuItems = [
+            { label: 'Dashboard', icon: 'fas fa-chart-line', routerLink: ['/'], command: function (event) { return handleSelected(event); } },
+            { label: 'Work order', icon: 'fas fa-briefcase', routerLink: ['/workorder'], command: function (event) { return handleSelected(event); } },
+            { label: 'Task', icon: 'fas fa-tasks', routerLink: ['/task'], command: function (event) { return handleSelected(event); } },
+            { label: 'Vendor', icon: 'fas fa-user', routerLink: ['/vendor'], command: function (event) { return handleSelected(event); } },
+            { label: 'CRM', icon: 'fas fa-users', routerLink: ['/crm'], command: function (event) { return handleSelected(event); } },
+            { label: 'Accountant', icon: 'fas fa-file-invoice-dollar', routerLink: ['/accountant'], command: function (event) { return handleSelected(event); } }
+        ];
+    };
     NavMenuComponent = __decorate([
         core_1.Component({
             selector: 'app-nav-menu',

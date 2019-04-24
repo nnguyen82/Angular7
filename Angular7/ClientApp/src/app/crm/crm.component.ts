@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
-  selector: 'app-task',
-  templateUrl: './task.component.html',
+  selector: 'app-crm',
+  templateUrl: './crm.component.html',
 })
 
-export class TaskComponent implements OnInit {
+export class CrmComponent implements OnInit{
   items: MenuItem[];
 
   constructor() {
@@ -14,7 +14,7 @@ export class TaskComponent implements OnInit {
 
   ngOnInit() {
     this.items = [
-      { label: 'Task', icon: 'fas fa-tasks' }
+      { label: 'Crm', icon: 'fas fa-users' }
     ];
   }
 }

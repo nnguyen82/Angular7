@@ -1,16 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-dash-board',
   templateUrl: './dash-board.component.html'
 })
 
-export class DashBoardComponent {
+export class DashBoardComponent implements OnInit{
+  items: MenuItem[];
   pie1: any;
   pie2: any;
   bar1: any;
 
   constructor() {
+  }
+
+  ngOnInit() {
+    this.items = [
+      { label: 'Dashboard', icon: 'fas fa-chart-line' }
+    ];
+
     this.pie1 = {
       labels: ['A', 'B', 'C'],
       datasets: [
@@ -64,6 +73,5 @@ export class DashBoardComponent {
         }
       ]
     };
-
   }
 }

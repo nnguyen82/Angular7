@@ -8,13 +8,18 @@ import { DashBoardComponent } from './dash-board/dash-board.component';
 import { TaskComponent } from './task/task.component';
 import { WorkOrderComponent } from './workorder/workorder.component';
 import { StatisticComponent } from './statistic/statistic.component';
-
+import { VendorComponent } from './vendor/vendor.component';
+import { CrmComponent } from './crm/crm.component';
+import { AccountantComponent } from './accountant/accountant.component';
 
 
 const routes: Routes = [
   { path: '', component: DashBoardComponent, pathMatch: 'full' },
   { path: 'task', component: TaskComponent },
-  { path: 'workorder', component: WorkOrderComponent }
+  { path: 'workorder', component: WorkOrderComponent },
+  { path: 'vendor', component: VendorComponent },
+  { path: 'crm', component: CrmComponent },
+  { path: 'accountant', component: AccountantComponent }
 ];
 
 @NgModule({
@@ -23,7 +28,10 @@ const routes: Routes = [
     DashBoardComponent,
     TaskComponent,
     WorkOrderComponent,
-    StatisticComponent
+    StatisticComponent,
+    VendorComponent,
+    CrmComponent,
+    AccountantComponent
   ],
   imports: [
     PrimeNgModule,
@@ -39,7 +47,10 @@ const routes: Routes = [
       TaskComponent,
       WorkOrderComponent,
       StatisticComponent,
-      CommonModule
+      CommonModule,
+      VendorComponent,
+      CrmComponent,
+      AccountantComponent
     ]
 })
 
