@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { ButtonModule, GrowlModule, InputTextModule, DropdownModule, CalendarModule, PanelModule, SidebarModule, MenuModule, TabMenuModule } from 'primeng/primeng';
+import { ButtonModule, GrowlModule, InputTextModule, DropdownModule, CalendarModule, PanelModule, SidebarModule, MenuModule, TabMenuModule, CardModule } from 'primeng/primeng';
 import { ChartModule } from 'primeng/chart';
 import { TableModule } from 'primeng/table';
 
@@ -16,7 +16,8 @@ import { TableModule } from 'primeng/table';
     ChartModule,
     MenuModule,
     TableModule,
-    TabMenuModule
+    TabMenuModule,
+    CardModule
   ],
   exports: [
     ButtonModule,
@@ -29,7 +30,8 @@ import { TableModule } from 'primeng/table';
     ChartModule,
     MenuModule,
     TableModule,
-    TabMenuModule
+    TabMenuModule,
+    CardModule
   ]
 })
 export class PrimeNgModule { }
