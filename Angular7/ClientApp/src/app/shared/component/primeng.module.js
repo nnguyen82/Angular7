@@ -25,7 +25,10 @@ var PrimeNgModule = /** @class */ (function () {
                 primeng_1.SidebarModule,
                 chart_1.ChartModule,
                 primeng_1.MenuModule,
-                table_1.TableModule
+                table_1.TableModule,
+                primeng_1.TabMenuModule,
+                primeng_1.CardModule,
+                primeng_1.DialogModule
             ],
             exports: [
                 primeng_1.ButtonModule,
@@ -37,7 +40,10 @@ var PrimeNgModule = /** @class */ (function () {
                 primeng_1.SidebarModule,
                 chart_1.ChartModule,
                 primeng_1.MenuModule,
-                table_1.TableModule
+                table_1.TableModule,
+                primeng_1.TabMenuModule,
+                primeng_1.CardModule,
+                primeng_1.DialogModule
             ]
         })
     ], PrimeNgModule);

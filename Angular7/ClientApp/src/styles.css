@@ -26,6 +26,12 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem {
   background-color: #3071a9 !important;
 }
 
+.ui-dialog-titlebar {
+  background-color: #3071a9 !important;
+  font-size: large;
+  color: white !important;
+}
+
 .menuBackGround {
   margin: 0px !important;
   border: none !important;

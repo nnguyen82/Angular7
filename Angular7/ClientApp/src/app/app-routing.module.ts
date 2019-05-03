@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { PrimeNgModule } from './shared/component/primeng.module';
 import { SharedModule } from './shared/component/shared.module';
+import { FormsModule } from '@angular/forms';
 
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { DashBoardComponent } from './dash-board/dash-board.component';
@@ -38,6 +39,7 @@ const routes: Routes = [
     SharedModule,
     HttpClientModule,
     CommonModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
   //Only export when other module need to use it.

@@ -1,6 +1,73 @@
 <div class="tabTitlePanel">
   <p-tabMenu [model]="items"></p-tabMenu>
-  <p-card>
-    Content
-  </p-card>
 </div>
+
+<p-card>
+  <p-table [columns]="cols" [value]="data" selectionMode="single">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns" style="background-color: #3071a9; color: white;">
+          {{col.header}}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr [pSelectableRow]="rowData">
+        <td *ngFor="let col of columns">
+          {{rowData[col.field]}}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <p-footer>
+    <p-button label="New Task" icon="fas fa-plus" (click)="DialogClick()"></p-button>
+  </p-footer>
+</p-card>
+
+<p-dialog [(visible)]="showDialog" [contentStyle]="{'max-height':'900px'}" [responsive]="true">
+  <p-header>
+    New Task
+  </p-header>
+
+  <div class="ui-g">
+    <div class="ui-g-12 ui-md-4">
+      <span class="ui-float-label">
+        <input id="TaskName" type="text"  size="100" pInputText>
+        <label for="TaskName">Task Name</label>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div class="ui-g">
+    <div class="ui-g-12 ui-md-4">
+      <span class="ui-float-label">
+        <input id="Status" type="text"  size="100" pInputText>
+        <label for="Status">Status</label>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div class="ui-g">
+    <div class="ui-g-12 ui-md-4">
+      <span class="ui-float-label">
+        <input id="Priority"  type="text" size="100" pInputText>
+        <label for="Priority">Priority</label>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div class="ui-g">
+    <div class="ui-g-12 ui-md-4">
+      <span class="ui-float-label">
+        <p-calendar  [showIcon]="true" appendTo="body"></p-calendar>
+        <label for="DueDate">Due Date</label>
+      </span>
+    </div>
+  </div>
+
+  <p-footer>
+    <p-button label="Submit"></p-button>
+    <p-button label="Close" (click)="CloseDialogClick()"></p-button>
+  </p-footer>
+</p-dialog>
