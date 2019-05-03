@@ -46,6 +46,7 @@
     <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.ts" />
     <None Remove="ClientApp\src\app\primeng.module.ts" />
     <None Remove="ClientApp\src\app\services\dashboard.service.ts" />
+    <None Remove="ClientApp\src\app\shared.module.ts" />
     <None Remove="ClientApp\src\app\shared\component\statistic\statistic.component.ts" />
     <None Remove="ClientApp\src\app\task\task.component.ts" />
     <None Remove="ClientApp\src\app\vendor\vendor.component.ts" />
@@ -57,8 +58,9 @@
     <TypeScriptCompile Include="ClientApp\src\app\crm\crm.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\dash-board\dash-board.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\nav-menu\nav-menu.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\primeng.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\component\primeng.module.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\dashboard.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\component\shared.module.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\component\statistic\statistic.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\task\task.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\vendor\vendor.component.ts" />

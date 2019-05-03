@@ -1,7 +1,7 @@
 <div class="tabTitlePanel">
   <p-tabMenu [model]="items"></p-tabMenu>
   <p-card>
-    <div class="ui-g">
+    <div class="ui-g" *ngIf="statistics">
       <app-statistic [label]="statistics.MyHours.Label" [value]="statistics.MyHours.Data" [icon]="statistics.MyHours.Icon" [colour]="statistics.MyHours.Color" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
       <app-statistic [label]="statistics.Stories.Label" [value]="statistics.Stories.Data" [icon]="statistics.Stories.Icon" [colour]="statistics.Stories.Color" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
       <app-statistic [label]="statistics.Remaining.Label" [value]="statistics.Remaining.Data" [icon]="statistics.Remaining.Icon" [colour]="statistics.Remaining.Color" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
