@@ -45,7 +45,8 @@
     <None Remove="ClientApp\src\app\dash-board\dash-board.component.ts" />
     <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.ts" />
     <None Remove="ClientApp\src\app\primeng.module.ts" />
-    <None Remove="ClientApp\src\app\statistic\statistic.component.ts" />
+    <None Remove="ClientApp\src\app\services\dashboard.service.ts" />
+    <None Remove="ClientApp\src\app\shared\component\statistic\statistic.component.ts" />
     <None Remove="ClientApp\src\app\task\task.component.ts" />
     <None Remove="ClientApp\src\app\vendor\vendor.component.ts" />
     <None Remove="ClientApp\src\app\workorder\workorder.component.ts" />
@@ -57,10 +58,16 @@
     <TypeScriptCompile Include="ClientApp\src\app\dash-board\dash-board.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\nav-menu\nav-menu.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\primeng.module.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\statistic\statistic.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\dashboard.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\component\statistic\statistic.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\task\task.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\vendor\vendor.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\workorder\workorder.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\interfaces\" />
+    <Folder Include="ClientApp\src\app\shared\pipe\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

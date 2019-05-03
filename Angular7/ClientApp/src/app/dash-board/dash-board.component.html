@@ -2,10 +2,10 @@
   <p-tabMenu [model]="items"></p-tabMenu>
   <p-card>
     <div class="ui-g">
-      <app-statistic label="My Hours" value="132" icon="fas fa-clock" colour="#00ACAC" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
-      <app-statistic label="Stories" value="35" icon="fas fa-users" colour="#2F8EE5" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
-      <app-statistic label="Remaining" value="23" icon="fas fa-hourglass-half" colour="#6C76AF" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
-      <app-statistic label="Sprints" value="4" icon="fas fa-chart-area" colour="#EFA64C" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
+      <app-statistic [label]="statistics.MyHours.Label" [value]="statistics.MyHours.Data" [icon]="statistics.MyHours.Icon" [colour]="statistics.MyHours.Color" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
+      <app-statistic [label]="statistics.Stories.Label" [value]="statistics.Stories.Data" [icon]="statistics.Stories.Icon" [colour]="statistics.Stories.Color" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
+      <app-statistic [label]="statistics.Remaining.Label" [value]="statistics.Remaining.Data" [icon]="statistics.Remaining.Icon" [colour]="statistics.Remaining.Color" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
+      <app-statistic [label]="statistics.Sprints.Label" [value]="statistics.Sprints.Data" [icon]="statistics.Sprints.Icon" [colour]="statistics.Sprints.Color" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
     </div>
 
     <div class="ui-g">
