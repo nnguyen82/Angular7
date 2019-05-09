@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ButtonModule, GrowlModule, InputTextModule, DropdownModule, CalendarModule, PanelModule, SidebarModule, MenuModule, TabMenuModule, CardModule, DialogModule } from 'primeng/primeng';
 import { ChartModule } from 'primeng/chart';
 import { TableModule } from 'primeng/table';
+import { FullCalendarModule } from 'primeng/fullcalendar';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { TableModule } from 'primeng/table';
     TableModule,
     TabMenuModule,
     CardModule,
-    DialogModule
+    DialogModule,
+    FullCalendarModule
   ],
   exports: [
     ButtonModule,
@@ -33,7 +35,8 @@ import { TableModule } from 'primeng/table';
     TableModule,
     TabMenuModule,
     CardModule,
-    DialogModule
+    DialogModule,
+    FullCalendarModule
   ]
 })
 export class PrimeNgModule { }

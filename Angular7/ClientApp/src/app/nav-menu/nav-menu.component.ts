@@ -27,7 +27,7 @@ export class NavMenuComponent implements OnInit {
     }
 
     this.menuItems = [
-      { label: 'Dashboard', icon: 'fas fa-chart-line', routerLink: ['/'], command: (event) => handleSelected(event) },
+      { label: 'Dashboard', icon: 'fas fa-chart-line', routerLink: ['/dashboard'], command: (event) => handleSelected(event) },
       { label: 'Work order', icon: 'fas fa-briefcase', routerLink: ['/workorder'], command: (event) => handleSelected(event) },
       { label: 'Task', icon: 'fas fa-tasks', routerLink: ['/task'], command: (event) => handleSelected(event) },
       { label: 'Vendor', icon: 'fas fa-user', routerLink: ['/vendor'], command: (event) => handleSelected(event) },

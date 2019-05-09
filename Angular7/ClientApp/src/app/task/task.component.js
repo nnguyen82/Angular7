@@ -7,17 +7,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var moment = require("moment");
 var TaskComponent = /** @class */ (function () {
     function TaskComponent() {
         this.showDialog = false;
+        this.formData = null;
     }
     TaskComponent.prototype.ngOnInit = function () {
         this.items = [
             { label: 'Task', icon: 'fas fa-tasks' }
         ];
         this.data = [
-            { id: '1', name: 'Task 1', owner: 'Nam Nguyen', status: 'Assigned', priority: 'High', duedate: '2/15/2019', assigneddate: '1/25/2019' },
-            { id: '2', name: 'Task 2', owner: 'Oanh Nguyen', status: 'Open', priority: 'Low', duedate: '3/15/2019', assigneddate: '4/25/2019' }
+            { id: '1', name: 'Task 1', owner: 'Nam Nguyen', status: 'Assigned', priority: 'High', duedate: moment(new Date('2/22/2019')).format('L'), assigneddate: moment(new Date('1/10/2019')).format('L') },
+            { id: '2', name: 'Task 2', owner: 'Oanh Nguyen', status: 'Open', priority: 'Low', duedate: moment(new Date('3/14/2019')).format('L'), assigneddate: moment(new Date('2/13/2019')).format('L') }
         ];
         this.cols = [
             { field: 'id', header: 'Id' },
@@ -29,10 +31,17 @@ var TaskComponent = /** @class */ (function () {
             { field: 'assigneddate', header: 'Assigned Date' }
         ];
     };
-    TaskComponent.prototype.DialogClick = function () {
+    TaskComponent.prototype.onNewTask = function () {
+        //this.formData = { taskName: 'Test', dueDate: new Date('2/22/2019'), status: 'Open', priority: 'Medium' };
         this.showDialog = true;
     };
-    TaskComponent.prototype.CloseDialogClick = function () {
+    TaskComponent.prototype.onSubmit = function ($event) {
+        var id = this.data.length + 1;
+        var taskName = $event.taskName;
+        var dueDate = moment($event.dueDate).format('L');
+        var status = $event.status;
+        var priority = $event.priority;
+        this.data.push({ id: id, name: taskName, owner: 'Nam Nguyen', status: status, priority: priority, duedate: dueDate, assigneddate: moment(new Date).format('L') });
         this.showDialog = false;
     };
     TaskComponent = __decorate([

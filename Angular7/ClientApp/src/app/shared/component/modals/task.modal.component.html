@@ -1,0 +1,43 @@
+<p-dialog [(visible)]="showDialog" [contentStyle]="{'max-height':'900px'}" [responsive]="true" [closable]="false">
+  <p-header>
+    New Task
+  </p-header>
+
+  <form [formGroup]="newTaskForm">
+    <div class="ui-g">
+      <div class="ui-g-12 ui-md-12">
+        <label for="TaskName" class="ui-g-12 ui-md-2">Task Name</label>
+        <input formControlName="taskName" class="ui-g-12 ui-md-6" type="text" pInputText size="100">
+      </div>
+    </div>
+
+    <div class="ui-g">
+      <div class="ui-g-12 ui-md-12">
+        <label for="Status" class="ui-g-12 ui-md-2">Status</label>
+        <p-dropdown [options]="statuses" formControlName="status" class="ui-g-12 ui-md-6" appendTo="body"></p-dropdown>
+      </div>
+    </div>
+
+    <div class="ui-g ui">
+      <div class="ui-g-12 ui-md-12">
+        <label for="Priority" class="ui-g-12 ui-md-2">Priority</label>
+        <p-dropdown [options]="priorities" formControlName="priority" class="ui-g-12 ui-md-6" appendTo="body"></p-dropdown>
+      </div>
+    </div>
+
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-12 ui-md-12">
+        <label for="DueDate" class="ui-g-12 ui-md-2">Due Date</label>
+        <div class="ui-g-12 ui-md-6">
+          <p-calendar [showIcon]="true" formControlName="dueDate" appendTo="body"></p-calendar>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+  <p-footer>
+    <p-button label="Submit" (click)="onSubmit()"></p-button>
+    <p-button label="Close" (click)="onClose()"></p-button>
+  </p-footer>
+</p-dialog>

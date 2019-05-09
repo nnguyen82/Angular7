@@ -1,7 +1,7 @@
 <nav class="navbar menuBackGround">
   <a class="navbar-brand"><b style="font-size:larger; color:floralwhite" [routerLink]='["/"]'>Demo UI</b></a>
   <form class="form-inline col-sm-7">
-    <input class="form-control col-sm-6" type="search" placeholder="Search" aria-label="Search">
+    <input class="form-control col-sm-5" type="search" placeholder="Search" aria-label="Search">
     &nbsp;<button class="btn btn-outline-success" type="submit">Search</button>
   </form>
   <nav class="navbar navbar-dark" (click)="display = true">
@@ -14,3 +14,4 @@
 <p-sidebar [(visible)]="display" position="right" styleClass="menuBackGround">
   <p-menu [model]="menuItems"></p-menu>
 </p-sidebar>
+

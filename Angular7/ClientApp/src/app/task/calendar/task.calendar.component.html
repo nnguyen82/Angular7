@@ -1,0 +1,8 @@
+<div class="tabTitlePanel">
+  <p-tabMenu [model]="items"></p-tabMenu>
+  <p-card>
+    <p-fullCalendar [(events)]="events" [options]="options"></p-fullCalendar>
+  </p-card>
+</div>
+
+<app-taskModal [(showDialog)]="showDialog" [(data)]="formData" (SubmitClick)="onSubmit($event)"></app-taskModal>

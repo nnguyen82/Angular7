@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 var primeng_1 = require("primeng/primeng");
 var chart_1 = require("primeng/chart");
 var table_1 = require("primeng/table");
+var fullcalendar_1 = require("primeng/fullcalendar");
 var PrimeNgModule = /** @class */ (function () {
     function PrimeNgModule() {
     }
@@ -28,7 +29,8 @@ var PrimeNgModule = /** @class */ (function () {
                 table_1.TableModule,
                 primeng_1.TabMenuModule,
                 primeng_1.CardModule,
-                primeng_1.DialogModule
+                primeng_1.DialogModule,
+                fullcalendar_1.FullCalendarModule
             ],
             exports: [
                 primeng_1.ButtonModule,
@@ -43,7 +45,8 @@ var PrimeNgModule = /** @class */ (function () {
                 table_1.TableModule,
                 primeng_1.TabMenuModule,
                 primeng_1.CardModule,
-                primeng_1.DialogModule
+                primeng_1.DialogModule,
+                fullcalendar_1.FullCalendarModule
             ]
         })
     ], PrimeNgModule);

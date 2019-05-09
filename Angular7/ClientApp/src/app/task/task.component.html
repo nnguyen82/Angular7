@@ -21,53 +21,10 @@
   </p-table>
 
   <p-footer>
-    <p-button label="New Task" icon="fas fa-plus" (click)="DialogClick()"></p-button>
+    <p-button label="New Task" icon="fas fa-plus" (click)="onNewTask()"></p-button>
+    &nbsp;
+    <p-button label="Calendar View" icon="fas fa-calendar" [routerLink]='["calendar"]'></p-button>
   </p-footer>
 </p-card>
+<app-taskModal [(showDialog)]="showDialog" [(data)]="formData" (SubmitClick)="onSubmit($event)"></app-taskModal>
 
-<p-dialog [(visible)]="showDialog" [contentStyle]="{'max-height':'900px'}" [responsive]="true">
-  <p-header>
-    New Task
-  </p-header>
-
-  <div class="ui-g">
-    <div class="ui-g-12 ui-md-4">
-      <span class="ui-float-label">
-        <input id="TaskName" type="text"  size="100" pInputText>
-        <label for="TaskName">Task Name</label>
-      </span>
-    </div>
-  </div>
-  <br />
-  <div class="ui-g">
-    <div class="ui-g-12 ui-md-4">
-      <span class="ui-float-label">
-        <input id="Status" type="text"  size="100" pInputText>
-        <label for="Status">Status</label>
-      </span>
-    </div>
-  </div>
-  <br />
-  <div class="ui-g">
-    <div class="ui-g-12 ui-md-4">
-      <span class="ui-float-label">
-        <input id="Priority"  type="text" size="100" pInputText>
-        <label for="Priority">Priority</label>
-      </span>
-    </div>
-  </div>
-  <br />
-  <div class="ui-g">
-    <div class="ui-g-12 ui-md-4">
-      <span class="ui-float-label">
-        <p-calendar  [showIcon]="true" appendTo="body"></p-calendar>
-        <label for="DueDate">Due Date</label>
-      </span>
-    </div>
-  </div>
-
-  <p-footer>
-    <p-button label="Submit"></p-button>
-    <p-button label="Close" (click)="CloseDialogClick()"></p-button>
-  </p-footer>
-</p-dialog>
