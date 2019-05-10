@@ -23,10 +23,7 @@ const taskRoutes: Routes = [
   imports: [
     SharedModule,
     RouterModule.forChild(taskRoutes)
-  ],
-  exports:
-    [
-    ]
+  ]
 })
 
 export class TaskModule { }

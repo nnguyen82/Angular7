@@ -53,7 +53,9 @@
     <None Remove="ClientApp\src\app\task\task.component.ts" />
     <None Remove="ClientApp\src\app\task\task.module.ts" />
     <None Remove="ClientApp\src\app\vendor\vendor.component.ts" />
+    <None Remove="ClientApp\src\app\workorder\steps\createjob.component.ts" />
     <None Remove="ClientApp\src\app\workorder\workorder.component.ts" />
+    <None Remove="ClientApp\src\app\workorder\workorder.module.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -70,7 +72,9 @@
     <TypeScriptCompile Include="ClientApp\src\app\task\task.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\task\task.module.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\vendor\vendor.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\workorder\steps\createjob.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\workorder\workorder.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\workorder\workorder.module.ts" />
   </ItemGroup>
 
   <ItemGroup>

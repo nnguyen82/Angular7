@@ -1,6 +1,18 @@
 <div class="tabTitlePanel">
   <p-tabMenu [model]="items"></p-tabMenu>
-    <p-card>
-      Content
-    </p-card>
+  <p-card [ngSwitch]="pageIndex">
+    <p-steps [model]="pages" [(activeIndex)]="pageIndex" [readonly]="false"></p-steps>
+    <div *ngSwitchCase="PageNames.CreateJob">
+      <app-createjob></app-createjob>
+    </div>
+    <div *ngSwitchCase="PageNames.JobAssignments">
+      Job assignments page
+    </div>
+    <div *ngSwitchCase="PageNames.Invoicing">
+      Invoicing page
+    </div>
+    <div *ngSwitchCase="PageNames.Complete">
+      Complete page
+    </div>
+  </p-card>
 </div>

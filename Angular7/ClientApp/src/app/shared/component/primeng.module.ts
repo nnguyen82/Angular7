@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 
-import { ButtonModule, GrowlModule, InputTextModule, DropdownModule, CalendarModule, PanelModule, SidebarModule, MenuModule, TabMenuModule, CardModule, DialogModule } from 'primeng/primeng';
+import {ButtonModule, GrowlModule, InputTextModule, DropdownModule, CalendarModule, PanelModule,
+  SidebarModule, MenuModule, TabMenuModule, CardModule, DialogModule, StepsModule}
+  from 'primeng/primeng';
+
 import { ChartModule } from 'primeng/chart';
 import { TableModule } from 'primeng/table';
 import { FullCalendarModule } from 'primeng/fullcalendar';
@@ -20,7 +23,8 @@ import { FullCalendarModule } from 'primeng/fullcalendar';
     TabMenuModule,
     CardModule,
     DialogModule,
-    FullCalendarModule
+    FullCalendarModule,
+    StepsModule
   ],
   exports: [
     ButtonModule,
@@ -36,7 +40,8 @@ import { FullCalendarModule } from 'primeng/fullcalendar';
     TabMenuModule,
     CardModule,
     DialogModule,
-    FullCalendarModule
+    FullCalendarModule,
+    StepsModule
   ]
 })
 export class PrimeNgModule { }

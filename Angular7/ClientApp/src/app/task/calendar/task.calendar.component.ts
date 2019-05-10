@@ -12,6 +12,7 @@ export class TaskCalendarComponent implements OnInit {
   options: any;
   showDialog: boolean = false;
   formData: any = null;
+  data: any;
 
   constructor() {
   }
@@ -21,31 +22,45 @@ export class TaskCalendarComponent implements OnInit {
       { label: 'Task Calendar', icon: 'fas fa-calendar' }
     ];
 
-    this.events = [
+    this.data = [
       {
-        "title": "All Day Event",
-        "start": "2019-05-01"
+        id: 1,
+        title: "All Day Event",
+        status: 'Open',
+        priority: 'High',
+        start: "2019-05-01"
       },
       {
-        "title": "Long Event",
-        "start": "2019-04-07",
-        "end": "2019-05-10"
+        id: 2,
+        title: "Long Event",
+        start: "2019-05-07",
+        status: 'Open',
+        priority: 'High'
       },
       {
-        "title": "Repeating Event",
-        "start": "2019-04-09T16:00:00"
+        id: 3,
+        title: "Repeating Event",
+        status: 'Open',
+        priority: 'High',
+        start: "2019-05-09T16:00:00"
       },
       {
-        "title": "Repeating Event",
-        "start": "2019-05-16T16:00:00",
-        "end": "2019-05-16T20:00:00"
+        id: 4,
+        title: "Repeating Event",
+        status: 'Open',
+        priority: 'High',
+        start: "2019-05-16T16:00:00"
       },
       {
-        "title": "Conference",
-        "start": "2019-05-11",
-        "end": "2019-05-13"
+        id: 5,
+        title: "Conference",
+        status: 'Open',
+        priority: 'High',
+        start: "2019-05-11"
       }
     ];
+
+    this.events = this.data
 
     this.options = {
       height: 800,
@@ -64,7 +79,10 @@ export class TaskCalendarComponent implements OnInit {
   }
 
   EventClick(info: any): void {
-    alert('Clicked on: ' + info.event.title);
+    let query = this.Search(info.event.id);
+
+    this.formData = { taskName: query.title, dueDate: new Date(moment(query.start).format('L')), status: query.status, priority: query.priority };
+    this.showDialog = true;
   }
 
   DateClick(info: any): void {
@@ -73,15 +91,31 @@ export class TaskCalendarComponent implements OnInit {
     this.showDialog = true;
   }
 
-  onSubmit($event) {
+  onSubmit($event): void {
+    let id = this.events.length + 1;
     let taskName = $event.taskName;
     let dueDate = moment($event.dueDate).format('YYYY-MM-DD');
 
     this.events = [...this.events, {
-      "title": taskName,
-      "start": dueDate
+      id: id,
+      title: taskName,
+      status: $event.status,
+      priority: $event.priority,
+      start: dueDate
     }];
 
+    this.data.push({
+      id: id,
+      title: taskName,
+      status: $event.status,
+      priority: $event.priority,
+      start: dueDate
+    });
+
     this.showDialog = false;
+  }
+
+  Search(id: any): any {
+    return this.data.find(x => x.id == id);
   }
 }

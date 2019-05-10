@@ -9,15 +9,24 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var WorkOrderComponent = /** @class */ (function () {
     function WorkOrderComponent() {
+        this.PageNames = PageNames;
     }
     WorkOrderComponent.prototype.ngOnInit = function () {
         this.items = [
             { label: 'Work order', icon: 'fas fa-briefcase' }
         ];
+        this.pageIndex = this.PageNames.CreateJob;
+        this.pages = [
+            { label: "Create Job" },
+            { label: "Job assignments" },
+            { label: "Invoicing" },
+            { label: "Complete" }
+        ];
+    };
+    WorkOrderComponent.prototype.onSubmit = function () {
     };
     WorkOrderComponent = __decorate([
         core_1.Component({
-            selector: 'app-workorder',
             templateUrl: './workorder.component.html',
             styleUrls: ['./workorder.component.css']
         })
@@ -25,4 +34,11 @@ var WorkOrderComponent = /** @class */ (function () {
     return WorkOrderComponent;
 }());
 exports.WorkOrderComponent = WorkOrderComponent;
+var PageNames;
+(function (PageNames) {
+    PageNames[PageNames["CreateJob"] = 0] = "CreateJob";
+    PageNames[PageNames["JobAssignments"] = 1] = "JobAssignments";
+    PageNames[PageNames["Invoicing"] = 2] = "Invoicing";
+    PageNames[PageNames["Complete"] = 3] = "Complete";
+})(PageNames = exports.PageNames || (exports.PageNames = {}));
 //# sourceMappingURL=workorder.component.js.map

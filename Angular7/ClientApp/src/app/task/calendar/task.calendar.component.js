@@ -18,31 +18,44 @@ var TaskCalendarComponent = /** @class */ (function () {
         this.items = [
             { label: 'Task Calendar', icon: 'fas fa-calendar' }
         ];
-        this.events = [
+        this.data = [
             {
-                "title": "All Day Event",
-                "start": "2019-05-01"
+                id: 1,
+                title: "All Day Event",
+                status: 'Open',
+                priority: 'High',
+                start: "2019-05-01"
             },
             {
-                "title": "Long Event",
-                "start": "2019-04-07",
-                "end": "2019-05-10"
+                id: 2,
+                title: "Long Event",
+                start: "2019-05-07",
+                status: 'Open',
+                priority: 'High'
             },
             {
-                "title": "Repeating Event",
-                "start": "2019-04-09T16:00:00"
+                id: 3,
+                title: "Repeating Event",
+                status: 'Open',
+                priority: 'High',
+                start: "2019-05-09T16:00:00"
             },
             {
-                "title": "Repeating Event",
-                "start": "2019-05-16T16:00:00",
-                "end": "2019-05-16T20:00:00"
+                id: 4,
+                title: "Repeating Event",
+                status: 'Open',
+                priority: 'High',
+                start: "2019-05-16T16:00:00"
             },
             {
-                "title": "Conference",
-                "start": "2019-05-11",
-                "end": "2019-05-13"
+                id: 5,
+                title: "Conference",
+                status: 'Open',
+                priority: 'High',
+                start: "2019-05-11"
             }
         ];
+        this.events = this.data;
         this.options = {
             height: 800,
             header: {
@@ -59,7 +72,9 @@ var TaskCalendarComponent = /** @class */ (function () {
         };
     };
     TaskCalendarComponent.prototype.EventClick = function (info) {
-        alert('Clicked on: ' + info.event.title);
+        var query = this.Search(info.event.id);
+        this.formData = { taskName: query.title, dueDate: new Date(moment(query.start).format('L')), status: query.status, priority: query.priority };
+        this.showDialog = true;
     };
     TaskCalendarComponent.prototype.DateClick = function (info) {
         var dateClick = new Date(moment(info.dateStr).format('L'));
@@ -67,13 +82,27 @@ var TaskCalendarComponent = /** @class */ (function () {
         this.showDialog = true;
     };
     TaskCalendarComponent.prototype.onSubmit = function ($event) {
+        var id = this.events.length + 1;
         var taskName = $event.taskName;
         var dueDate = moment($event.dueDate).format('YYYY-MM-DD');
         this.events = this.events.concat([{
-                "title": taskName,
-                "start": dueDate
+                id: id,
+                title: taskName,
+                status: $event.status,
+                priority: $event.priority,
+                start: dueDate
             }]);
+        this.data.push({
+            id: id,
+            title: taskName,
+            status: $event.status,
+            priority: $event.priority,
+            start: dueDate
+        });
         this.showDialog = false;
+    };
+    TaskCalendarComponent.prototype.Search = function (id) {
+        return this.data.find(function (x) { return x.id == id; });
     };
     TaskCalendarComponent = __decorate([
         core_1.Component({
