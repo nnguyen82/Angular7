@@ -13,4 +13,7 @@ export class CreateJobComponent implements OnInit {
   ngOnInit() {
     
   }
+
+  onSubmit(): void {
+  }
 }

@@ -21,7 +21,7 @@ export class DashBoardComponent implements OnInit{
     this.items = [
       { label: 'Dashboard', icon: 'fas fa-chart-line' }
     ];
-    
+
     this.dashboardService.GetDashBoard().subscribe(res => {
       this.pie1 = res.Pie1;
       this.pie2 = res.Pie2;
@@ -29,6 +29,8 @@ export class DashBoardComponent implements OnInit{
       this.statistics = res.Statistics;
 
     }, err => { console.log("Get dashboard error: " + err.message) });
+
+    //this.dashboardService.SendMessage('Message sent from dashboard service!');
 
   }
 }

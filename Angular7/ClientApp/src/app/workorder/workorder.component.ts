@@ -29,9 +29,6 @@ export class WorkOrderComponent implements OnInit{
       { label: "Complete" }
     ];
   }
-
-  onSubmit(): void {
-  }
 }
 
 export enum PageNames {

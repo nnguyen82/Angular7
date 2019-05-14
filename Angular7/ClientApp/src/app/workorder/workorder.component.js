@@ -23,8 +23,6 @@ var WorkOrderComponent = /** @class */ (function () {
             { label: "Complete" }
         ];
     };
-    WorkOrderComponent.prototype.onSubmit = function () {
-    };
     WorkOrderComponent = __decorate([
         core_1.Component({
             templateUrl: './workorder.component.html',

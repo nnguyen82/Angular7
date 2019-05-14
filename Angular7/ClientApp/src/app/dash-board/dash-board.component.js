@@ -22,6 +22,7 @@ var DashBoardComponent = /** @class */ (function () {
             _this.bar1 = res.Bar1;
             _this.statistics = res.Statistics;
         }, function (err) { console.log("Get dashboard error: " + err.message); });
+        //this.dashboardService.SendMessage('Message sent from dashboard service!');
     };
     DashBoardComponent = __decorate([
         core_1.Component({

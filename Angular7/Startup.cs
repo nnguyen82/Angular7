@@ -1,3 +1,4 @@
+using Angular7.Hubs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +30,8 @@ namespace Angular7
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +49,11 @@ namespace Angular7
 
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<TaskHub>("/taskHub");
+            });
 
             app.UseMvc(routes =>
             {
