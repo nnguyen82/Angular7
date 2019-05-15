@@ -20,6 +20,7 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,6 +47,7 @@
     <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.ts" />
     <None Remove="ClientApp\src\app\primeng.module.ts" />
     <None Remove="ClientApp\src\app\services\dashboard.service.ts" />
+    <None Remove="ClientApp\src\app\services\task.service.ts" />
     <None Remove="ClientApp\src\app\shared.module.ts" />
     <None Remove="ClientApp\src\app\shared\component\modals\task.modal.component.ts" />
     <None Remove="ClientApp\src\app\shared\component\statistic\statistic.component.ts" />
@@ -63,6 +65,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\crm\crm.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\dash-board\dash-board.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\nav-menu\nav-menu.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\task.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\component\modals\task.modal.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\component\primeng.module.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\dashboard.service.ts" />

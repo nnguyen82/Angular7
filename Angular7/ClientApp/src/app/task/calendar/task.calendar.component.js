@@ -9,7 +9,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var moment = require("moment");
 var TaskCalendarComponent = /** @class */ (function () {
-    function TaskCalendarComponent() {
+    function TaskCalendarComponent(taskService) {
+        this.taskService = taskService;
         this.showDialog = false;
         this.formData = null;
     }
@@ -70,6 +71,7 @@ var TaskCalendarComponent = /** @class */ (function () {
                 _this.DateClick(e);
             }
         };
+        this.waitingOnSubmit();
     };
     TaskCalendarComponent.prototype.EventClick = function (info) {
         var query = this.Search(info.event.id);
@@ -84,25 +86,43 @@ var TaskCalendarComponent = /** @class */ (function () {
     TaskCalendarComponent.prototype.onSubmit = function ($event) {
         var id = this.events.length + 1;
         var taskName = $event.taskName;
-        var dueDate = moment($event.dueDate).format('YYYY-MM-DD');
-        this.events = this.events.concat([{
-                id: id,
-                title: taskName,
-                status: $event.status,
-                priority: $event.priority,
-                start: dueDate
-            }]);
-        this.data.push({
-            id: id,
-            title: taskName,
-            status: $event.status,
-            priority: $event.priority,
-            start: dueDate
+        var dueDate = moment(new Date($event.dueDate)).format('YYYY-MM-DD');
+        var vm = { id: id, name: taskName, owner: 'Nam Nguyen', status: $event.status, priority: $event.priority, dueDate: dueDate, assignedDate: moment(new Date).format('L') };
+        this.taskService.Save(vm).subscribe(function () {
         });
         this.showDialog = false;
     };
     TaskCalendarComponent.prototype.Search = function (id) {
         return this.data.find(function (x) { return x.id == id; });
+    };
+    TaskCalendarComponent.prototype.waitingOnSubmit = function () {
+        var _this = this;
+        var intervalId = setInterval(function () {
+            if (_this.taskService.data !== undefined) {
+                var vm = _this.taskService.data;
+                vm.dueDate = moment(new Date(vm.dueDate)).format('YYYY-MM-DD');
+                vm.assignedDate = moment(new Date(vm.assignedDate)).format('YYYY-MM-DD');
+                _this.SetGrid(vm);
+                _this.taskService.data = undefined;
+                //clearInterval(intervalId)
+            }
+        }, 1000);
+    };
+    TaskCalendarComponent.prototype.SetGrid = function (vm) {
+        this.events = this.events.concat([{
+                id: vm.id,
+                title: vm.name,
+                status: vm.status,
+                priority: vm.priority,
+                start: vm.dueDate
+            }]);
+        this.data.push({
+            id: vm.id,
+            title: vm.name,
+            status: vm.status,
+            priority: vm.priority,
+            start: vm.dueDate
+        });
     };
     TaskCalendarComponent = __decorate([
         core_1.Component({

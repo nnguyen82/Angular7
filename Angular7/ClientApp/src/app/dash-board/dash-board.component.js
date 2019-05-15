@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 var DashBoardComponent = /** @class */ (function () {
     function DashBoardComponent(dashboardService) {
         this.dashboardService = dashboardService;
+        this.statistics = null;
     }
     DashBoardComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -20,9 +21,10 @@ var DashBoardComponent = /** @class */ (function () {
             _this.pie1 = res.Pie1;
             _this.pie2 = res.Pie2;
             _this.bar1 = res.Bar1;
-            _this.statistics = res.Statistics;
         }, function (err) { console.log("Get dashboard error: " + err.message); });
-        //this.dashboardService.SendMessage('Message sent from dashboard service!');
+        this.dashboardService.GetRandomStatistics().subscribe(function (res) {
+            console.log("Statistic service start!");
+        });
     };
     DashBoardComponent = __decorate([
         core_1.Component({

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import * as moment from 'moment';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   templateUrl: './task.calendar.component.html',
@@ -14,7 +15,7 @@ export class TaskCalendarComponent implements OnInit {
   formData: any = null;
   data: any;
 
-  constructor() {
+  constructor(private taskService: TaskService) {
   }
 
   ngOnInit() {
@@ -76,6 +77,8 @@ export class TaskCalendarComponent implements OnInit {
         this.DateClick(e);
       }
     };
+
+    this.waitingOnSubmit();
   }
 
   EventClick(info: any): void {
@@ -94,22 +97,11 @@ export class TaskCalendarComponent implements OnInit {
   onSubmit($event): void {
     let id = this.events.length + 1;
     let taskName = $event.taskName;
-    let dueDate = moment($event.dueDate).format('YYYY-MM-DD');
+    let dueDate = moment(new Date($event.dueDate)).format('YYYY-MM-DD');
 
-    this.events = [...this.events, {
-      id: id,
-      title: taskName,
-      status: $event.status,
-      priority: $event.priority,
-      start: dueDate
-    }];
+    let vm = { id: id, name: taskName, owner: 'Nam Nguyen', status: $event.status, priority: $event.priority, dueDate: dueDate, assignedDate: moment(new Date).format('L') };
 
-    this.data.push({
-      id: id,
-      title: taskName,
-      status: $event.status,
-      priority: $event.priority,
-      start: dueDate
+    this.taskService.Save(vm).subscribe(() => {
     });
 
     this.showDialog = false;
@@ -118,4 +110,37 @@ export class TaskCalendarComponent implements OnInit {
   Search(id: any): any {
     return this.data.find(x => x.id == id);
   }
+
+  waitingOnSubmit(): void {
+    let intervalId = setInterval(() => {
+      if (this.taskService.data !== undefined) {
+        let vm = this.taskService.data;
+        vm.dueDate = moment(new Date(vm.dueDate)).format('YYYY-MM-DD');
+        vm.assignedDate = moment(new Date(vm.assignedDate)).format('YYYY-MM-DD');
+
+        this.SetGrid(vm);
+        this.taskService.data = undefined;
+        //clearInterval(intervalId)
+      }
+    }, 1000)
+  }
+
+  SetGrid(vm): void {
+    this.events = [...this.events, {
+      id: vm.id,
+      title: vm.name,
+      status: vm.status,
+      priority: vm.priority,
+      start: vm.dueDate
+    }];
+
+    this.data.push({
+      id: vm.id,
+      title: vm.name,
+      status: vm.status,
+      priority: vm.priority,
+      start: vm.dueDate
+    });
+  }
+
 }

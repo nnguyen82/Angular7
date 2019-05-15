@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import * as moment from 'moment';
+import { TaskService } from '../services/task.service';
 
 @Component({
   templateUrl: './task.component.html',
@@ -13,7 +14,7 @@ export class TaskComponent implements OnInit {
   cols: any;
   formData: any = null;
 
-  constructor() {}
+  constructor(private taskService: TaskService) { }
 
   ngOnInit() {
 
@@ -22,8 +23,8 @@ export class TaskComponent implements OnInit {
     ];
 
     this.data = [
-      { id: '1', name: 'Task 1', owner: 'Nam Nguyen', status: 'Assigned', priority: 'High', duedate: moment(new Date('2/22/2019')).format('L'), assigneddate: moment(new Date('1/10/2019')).format('L') },
-      { id: '2', name: 'Task 2', owner: 'Oanh Nguyen', status: 'Open', priority: 'Low', duedate: moment(new Date('3/14/2019')).format('L'), assigneddate: moment(new Date('2/13/2019')).format('L') }
+      { id: '1', name: 'Task 1', owner: 'Nam Nguyen', status: 'Assigned', priority: 'High', dueDate: moment(new Date('2/22/2019')).format('L'), assignedDate: moment(new Date('1/10/2019')).format('L') },
+      { id: '2', name: 'Task 2', owner: 'Oanh Nguyen', status: 'Open', priority: 'Low', dueDate: moment(new Date('3/14/2019')).format('L'), assignedDate: moment(new Date('2/13/2019')).format('L') }
     ];
 
     this.cols = [
@@ -32,9 +33,11 @@ export class TaskComponent implements OnInit {
       { field: 'owner', header: 'Owner' },
       { field: 'status', header: 'Status' },
       { field: 'priority', header: 'Priority' },
-      { field: 'duedate', header: 'Due Date' },
-      { field: 'assigneddate', header: 'Assigned Date' }
+      { field: 'dueDate', header: 'Due Date' },
+      { field: 'assignedDate', header: 'Assigned Date' }
     ];
+
+    this.waitingOnSubmit();
   }
 
   onNewTask() {
@@ -45,11 +48,32 @@ export class TaskComponent implements OnInit {
   onSubmit($event) {
     let id = this.data.length + 1;
     let taskName = $event.taskName;
-    let dueDate = moment($event.dueDate).format('L');
+    let dueDate = moment(new Date($event.dueDate)).format('L');
     let status = $event.status;
     let priority = $event.priority;
+    let vm = { id: id, name: taskName, owner: 'Nam Nguyen', status: status, priority: priority, dueDate: dueDate, assignedDate: moment(new Date).format('L') };
 
-    this.data.push({ id: id, name: taskName, owner: 'Nam Nguyen', status: status, priority: priority, duedate: dueDate, assigneddate: moment(new Date).format('L') });
+    //this.SetGrid(vm);
     this.showDialog = false;
+
+    this.taskService.Save(vm).subscribe(() => {
+    });
+  }
+
+  waitingOnSubmit(): void {
+    let intervalId = setInterval(() => {
+      if (this.taskService.data !== undefined) {
+        let vm = this.taskService.data;
+        vm.dueDate = moment(vm.dueDate).format('L');
+        vm.assignedDate = moment(vm.assignedDate).format('L');
+        this.SetGrid(vm);
+        this.taskService.data = undefined;
+        //clearInterval(intervalId)
+      }
+    }, 1000)
+  }
+
+  SetGrid(vm): void {
+    this.data.push(vm);
   }
 }

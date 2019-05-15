@@ -32,8 +32,7 @@ var TaskModule = /** @class */ (function () {
             imports: [
                 shared_module_1.SharedModule,
                 router_1.RouterModule.forChild(taskRoutes)
-            ],
-            exports: []
+            ]
         })
     ], TaskModule);
     return TaskModule;

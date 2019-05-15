@@ -1,11 +1,11 @@
 <div class="tabTitlePanel">
   <p-tabMenu [model]="items"></p-tabMenu>
   <p-card>
-    <div class="ui-g" *ngIf="statistics">
-      <app-statistic [label]="statistics.MyHours.Label" [value]="statistics.MyHours.Data" [icon]="statistics.MyHours.Icon" [colour]="statistics.MyHours.Color" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
-      <app-statistic [label]="statistics.Stories.Label" [value]="statistics.Stories.Data" [icon]="statistics.Stories.Icon" [colour]="statistics.Stories.Color" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
-      <app-statistic [label]="statistics.Remaining.Label" [value]="statistics.Remaining.Data" [icon]="statistics.Remaining.Icon" [colour]="statistics.Remaining.Color" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
-      <app-statistic [label]="statistics.Sprints.Label" [value]="statistics.Sprints.Data" [icon]="statistics.Sprints.Icon" [colour]="statistics.Sprints.Color" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
+    <div class="ui-g" *ngIf="dashboardService.data">
+      <app-statistic [(label)]="dashboardService.data.myHours.label" [(value)]="dashboardService.data.myHours.data" [(icon)]="dashboardService.data.myHours.icon" [(colour)]="dashboardService.data.myHours.color" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
+      <app-statistic [(label)]="dashboardService.data.stories.label" [(value)]="dashboardService.data.stories.data" [(icon)]="dashboardService.data.stories.icon" [(colour)]="dashboardService.data.stories.color" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
+      <app-statistic [(label)]="dashboardService.data.remaining.label" [(value)]="dashboardService.data.remaining.data" [(icon)]="dashboardService.data.remaining.icon" [(colour)]="dashboardService.data.remaining.color" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
+      <app-statistic [(label)]="dashboardService.data.sprints.label" [(value)]="dashboardService.data.sprints.data" [(icon)]="dashboardService.data.sprints.icon" [(colour)]="dashboardService.data.sprints.color" class="ui-g-12 ui-md-6 ui-lg-3"></app-statistic>
     </div>
 
     <div class="ui-g">

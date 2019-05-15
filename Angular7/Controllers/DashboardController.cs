@@ -1,16 +1,31 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Angular7.ViewModels;
 using Angular7.Models;
+using Microsoft.AspNetCore.SignalR;
+using Angular7.Hubs;
+using Angular7.Common;
 
 namespace Angular7.Controllers
 {
     [Route("api/[controller]")]
     public class DashboardController : Controller
     {
+        private readonly IHubContext<DashboardHub> _hub;
+
+        public DashboardController(IHubContext<DashboardHub> hub)
+        {
+            _hub = hub;
+        }
+
+        [HttpGet("[action]")]
+        public IActionResult GetRandomStatistics()
+        {
+            var timerManager = new TimerManager(() => _hub.Clients.All.SendAsync("ReceiveStatistic", GetStatistics()));
+
+            return Ok(new { Message = "Request Completed" });
+        }
+
         [HttpGet("[action]")]
         public IActionResult GetDashBoard()
         {
@@ -27,12 +42,14 @@ namespace Angular7.Controllers
 
         private StatisticViewModel GetStatistics()
         {
+            var r = new Random();
+
             StatisticViewModel vm = new StatisticViewModel()
             {
-                MyHours = new StatisticDataSet() { Label = "My Hours", Data = 132, Color = "#00ACAC", Icon = "fas fa-clock" },
-                Stories = new StatisticDataSet() { Label = "Stories", Data = 35, Color = "#2F8EE5", Icon = "fas fa-users" },
-                Remaining = new StatisticDataSet() { Label = "Remaining", Data = 23, Color = "#6C76AF", Icon = "fas fa-hourglass-half" },
-                Sprints = new StatisticDataSet() { Label = "Sprints", Data = 5, Color = "#EFA64C", Icon = "fas fa-chart-area" },
+                MyHours = new StatisticDataSet() { Label = "My Hours", Data = r.Next(100, 240), Color = "#00ACAC", Icon = "fas fa-clock" },
+                Stories = new StatisticDataSet() { Label = "Stories", Data = r.Next(10, 80), Color = "#2F8EE5", Icon = "fas fa-users" },
+                Remaining = new StatisticDataSet() { Label = "Remaining", Data = r.Next(1, 100), Color = "#6C76AF", Icon = "fas fa-hourglass-half" },
+                Sprints = new StatisticDataSet() { Label = "Sprints", Data = r.Next(1, 20), Color = "#EFA64C", Icon = "fas fa-chart-area" },
             };
 
             return vm;

@@ -8,14 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var signalR = require("@aspnet/signalr");
-var DashBoardService = /** @class */ (function () {
-    function DashBoardService(http) {
+var TaskService = /** @class */ (function () {
+    function TaskService(http) {
         var _this = this;
         this.http = http;
-        this.Url = 'api/dashboard/';
+        this.Url = 'api/Task/';
         this.startConnection = function () {
             _this.hubConnection = new signalR.HubConnectionBuilder()
-                .withUrl("/dashboardHub")
+                .withUrl("/taskHub")
                 .build();
             _this.hubConnection
                 .start()
@@ -25,29 +25,26 @@ var DashBoardService = /** @class */ (function () {
                 .catch(function (err) { return console.log('Error while starting connection: ' + err); });
         };
         this.onReceiveMessage = function () {
-            _this.hubConnection.on('ReceiveStatistic', function (data) {
+            _this.hubConnection.on('ReceiveTask', function (data) {
                 _this.data = data;
             });
         };
         this.startConnection();
         this.onReceiveMessage();
     }
-    DashBoardService.prototype.GetDashBoard = function () {
-        return this.http.get(this.Url + 'GetDashBoard');
+    TaskService.prototype.Save = function (vm) {
+        return this.http.post(this.Url, vm, { responseType: 'text' });
     };
-    DashBoardService.prototype.GetRandomStatistics = function () {
-        return this.http.get(this.Url + 'GetRandomStatistics');
-    };
-    DashBoardService.prototype.SendMessage = function (message) {
+    TaskService.prototype.SendMessage = function (message) {
         this.hubConnection.send("SendNewMessage", message)
             .then(function () { return console.log('Message send: ' + message); });
     };
-    DashBoardService = __decorate([
+    TaskService = __decorate([
         core_1.Injectable({
             providedIn: 'root'
         })
-    ], DashBoardService);
-    return DashBoardService;
+    ], TaskService);
+    return TaskService;
 }());
-exports.DashBoardService = DashBoardService;
-//# sourceMappingURL=dashboard.service.js.map
+exports.TaskService = TaskService;
+//# sourceMappingURL=task.service.js.map

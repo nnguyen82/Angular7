@@ -53,6 +53,7 @@ namespace Angular7
             app.UseSignalR(routes =>
             {
                 routes.MapHub<TaskHub>("/taskHub");
+                routes.MapHub<DashboardHub>("/dashboardHub");
             });
 
             app.UseMvc(routes =>

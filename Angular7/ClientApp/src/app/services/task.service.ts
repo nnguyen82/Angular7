@@ -7,8 +7,8 @@ import * as signalR from "@aspnet/signalr";
   providedIn: 'root'
 })
 
-export class DashBoardService {
-  private Url = 'api/dashboard/';
+export class TaskService {
+  private Url = 'api/Task/';
   private hubConnection: signalR.HubConnection;
   public data: any;
 
@@ -17,17 +17,14 @@ export class DashBoardService {
     this.onReceiveMessage();
   }
 
-  GetDashBoard(): Observable<any> {
-    return this.http.get<any>(this.Url + 'GetDashBoard');
+  Save(vm: any): Observable<any> {
+    return this.http.post(this.Url, vm, { responseType: 'text' });
   }
 
-  GetRandomStatistics(): Observable<any> {
-    return this.http.get<any>(this.Url + 'GetRandomStatistics');
-  }
 
   private startConnection = () => {
     this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl("/dashboardHub")
+      .withUrl("/taskHub")
       .build();
 
     this.hubConnection
@@ -39,7 +36,7 @@ export class DashBoardService {
   }
 
   private onReceiveMessage = () => {
-    this.hubConnection.on('ReceiveStatistic', (data: any) => {
+    this.hubConnection.on('ReceiveTask', (data: any) => {
       this.data = data;
     });
   }

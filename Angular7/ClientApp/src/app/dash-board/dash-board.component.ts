@@ -12,9 +12,9 @@ export class DashBoardComponent implements OnInit{
   pie1: any;
   pie2: any;
   bar1: any;
-  statistics: any;
+  statistics: any = null;
 
-  constructor(private dashboardService: DashBoardService) {
+  constructor(public dashboardService: DashBoardService) {
   }
 
   ngOnInit() {
@@ -26,11 +26,11 @@ export class DashBoardComponent implements OnInit{
       this.pie1 = res.Pie1;
       this.pie2 = res.Pie2;
       this.bar1 = res.Bar1;
-      this.statistics = res.Statistics;
-
     }, err => { console.log("Get dashboard error: " + err.message) });
 
-    //this.dashboardService.SendMessage('Message sent from dashboard service!');
 
+    this.dashboardService.GetRandomStatistics().subscribe(res => {
+      console.log("Statistic service start!");
+    });
   }
 }
