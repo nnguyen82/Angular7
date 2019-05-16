@@ -97,13 +97,18 @@ var TaskCalendarComponent = /** @class */ (function () {
     };
     TaskCalendarComponent.prototype.waitingOnSubmit = function () {
         var _this = this;
+        var callOnetime = true;
         var intervalId = setInterval(function () {
-            if (_this.taskService.data !== undefined) {
+            if (_this.taskService.data !== undefined && callOnetime) {
+                callOnetime = false;
                 var vm = _this.taskService.data;
                 vm.dueDate = moment(new Date(vm.dueDate)).format('YYYY-MM-DD');
                 vm.assignedDate = moment(new Date(vm.assignedDate)).format('YYYY-MM-DD');
                 _this.SetGrid(vm);
-                _this.taskService.data = undefined;
+                setTimeout(function () {
+                    _this.taskService.data = undefined;
+                    callOnetime = true;
+                }, 2000);
                 //clearInterval(intervalId)
             }
         }, 1000);

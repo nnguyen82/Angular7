@@ -112,14 +112,23 @@ export class TaskCalendarComponent implements OnInit {
   }
 
   waitingOnSubmit(): void {
+    let callOnetime = true;
+
     let intervalId = setInterval(() => {
-      if (this.taskService.data !== undefined) {
+      if (this.taskService.data !== undefined && callOnetime) {
+        callOnetime = false;
+
         let vm = this.taskService.data;
         vm.dueDate = moment(new Date(vm.dueDate)).format('YYYY-MM-DD');
         vm.assignedDate = moment(new Date(vm.assignedDate)).format('YYYY-MM-DD');
 
         this.SetGrid(vm);
-        this.taskService.data = undefined;
+
+        //There a lag time when pushing data out so I pause for 2 second before setting taskService.data to undefined. This is a singleton
+        setTimeout(() => {
+          this.taskService.data = undefined;
+          callOnetime = true;
+        }, 2000);
         //clearInterval(intervalId)
       }
     }, 1000)

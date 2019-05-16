@@ -51,13 +51,18 @@ var TaskComponent = /** @class */ (function () {
     };
     TaskComponent.prototype.waitingOnSubmit = function () {
         var _this = this;
+        var callOnetime = true;
         var intervalId = setInterval(function () {
-            if (_this.taskService.data !== undefined) {
+            if (_this.taskService.data !== undefined && callOnetime) {
+                callOnetime = false;
                 var vm = _this.taskService.data;
                 vm.dueDate = moment(vm.dueDate).format('L');
                 vm.assignedDate = moment(vm.assignedDate).format('L');
                 _this.SetGrid(vm);
-                _this.taskService.data = undefined;
+                setTimeout(function () {
+                    _this.taskService.data = undefined;
+                    callOnetime = true;
+                }, 2000);
                 //clearInterval(intervalId)
             }
         }, 1000);
