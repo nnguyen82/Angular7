@@ -105,6 +105,7 @@ var TaskCalendarComponent = /** @class */ (function () {
                 vm.dueDate = moment(new Date(vm.dueDate)).format('YYYY-MM-DD');
                 vm.assignedDate = moment(new Date(vm.assignedDate)).format('YYYY-MM-DD');
                 _this.SetGrid(vm);
+                //There a lag time when pushing data out so I pause for 2 second before setting taskService.data to undefined. This is a singleton
                 setTimeout(function () {
                     _this.taskService.data = undefined;
                     callOnetime = true;

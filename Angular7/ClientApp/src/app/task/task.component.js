@@ -59,6 +59,7 @@ var TaskComponent = /** @class */ (function () {
                 vm.dueDate = moment(vm.dueDate).format('L');
                 vm.assignedDate = moment(vm.assignedDate).format('L');
                 _this.SetGrid(vm);
+                //There a lag time when pushing data out so I pause for 2 second before setting taskService.data to undefined. This is a singleton
                 setTimeout(function () {
                     _this.taskService.data = undefined;
                     callOnetime = true;

@@ -49,12 +49,7 @@ namespace Angular7
 
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-
-            app.UseSignalR(routes =>
-            {
-                routes.MapHub<TaskHub>("/taskHub");
-                routes.MapHub<DashboardHub>("/dashboardHub");
-            });
+            SetupSignalRHubs(app);
 
             app.UseMvc(routes =>
             {
@@ -74,6 +69,15 @@ namespace Angular7
                 {
                     spa.UseAngularCliServer(npmScript: "start");
                 }
+            });
+        }
+
+        private void SetupSignalRHubs(IApplicationBuilder app)
+        {
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<TaskHub>("/taskHub");
+                routes.MapHub<DashboardHub>("/dashboardHub");
             });
         }
     }
