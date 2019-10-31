@@ -32,7 +32,8 @@ export class NavMenuComponent implements OnInit {
       { label: 'Task', icon: 'fas fa-tasks', routerLink: ['/task'], command: (event) => handleSelected(event) },
       { label: 'Vendor', icon: 'fas fa-user', routerLink: ['/vendor'], command: (event) => handleSelected(event) },
       { label: 'CRM', icon: 'fas fa-users', routerLink: ['/crm'], command: (event) => handleSelected(event) },
-      { label: 'Accountant', icon: 'fas fa-file-invoice-dollar', routerLink: ['/accountant'], command: (event) => handleSelected(event) }
+        { label: 'Accountant', icon: 'fas fa-file-invoice-dollar', routerLink: ['/accountant'], command: (event) => handleSelected(event) },
+        { label: 'Position Justification', icon: 'fas fa-users', routerLink: ['/position'], command: (event) => handleSelected(event) },
     ];
   }
 

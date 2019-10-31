@@ -7,18 +7,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var CrmComponent = /** @class */ (function () {
-    function CrmComponent() {
+var common_1 = require("@angular/common");
+var crm_routing_module_1 = require("../crm/crm-routing.module");
+var crm_child_component_1 = require("../crm/crmchild/crm.child.component");
+var CRMModule = /** @class */ (function () {
+    function CRMModule() {
     }
-    CrmComponent.prototype.ngOnInit = function () {
-    };
-    CrmComponent = __decorate([
-        core_1.Component({
-            selector: 'app-crm',
-            templateUrl: './crm.component.html',
+    CRMModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                crm_routing_module_1.CrmRoutingModule
+            ],
+            declarations: [
+                crm_child_component_1.CrmChildComponent
+            ]
         })
-    ], CrmComponent);
-    return CrmComponent;
+    ], CRMModule);
+    return CRMModule;
 }());
-exports.CrmComponent = CrmComponent;
-//# sourceMappingURL=crm.component.js.map
+exports.CRMModule = CRMModule;
+//# sourceMappingURL=crm.module.js.map

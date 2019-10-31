@@ -7,14 +7,11 @@ import { MenuItem } from 'primeng/api';
 })
 
 export class CrmComponent implements OnInit{
-  items: MenuItem[];
 
   constructor() {
   }
 
   ngOnInit() {
-    this.items = [
-      { label: 'Crm', icon: 'fas fa-users' }
-    ];
+   
   }
 }

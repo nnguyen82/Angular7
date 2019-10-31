@@ -7,18 +7,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var CrmComponent = /** @class */ (function () {
-    function CrmComponent() {
+var RedirectGuard = /** @class */ (function () {
+    function RedirectGuard(router) {
+        this.router = router;
     }
-    CrmComponent.prototype.ngOnInit = function () {
+    RedirectGuard.prototype.canActivate = function (route, state) {
+        window.location.href = route.data['externalUrl'];
+        return true;
     };
-    CrmComponent = __decorate([
-        core_1.Component({
-            selector: 'app-crm',
-            templateUrl: './crm.component.html',
+    RedirectGuard = __decorate([
+        core_1.Injectable({
+            providedIn: 'root'
         })
-    ], CrmComponent);
-    return CrmComponent;
+    ], RedirectGuard);
+    return RedirectGuard;
 }());
-exports.CrmComponent = CrmComponent;
-//# sourceMappingURL=crm.component.js.map
+exports.RedirectGuard = RedirectGuard;
+//# sourceMappingURL=redirect.guard.js.map

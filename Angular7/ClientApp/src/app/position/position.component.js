@@ -7,18 +7,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var CrmComponent = /** @class */ (function () {
-    function CrmComponent() {
+var PositionComponent = /** @class */ (function () {
+    function PositionComponent() {
     }
-    CrmComponent.prototype.ngOnInit = function () {
+    PositionComponent.prototype.ngOnInit = function () {
     };
-    CrmComponent = __decorate([
+    PositionComponent = __decorate([
         core_1.Component({
-            selector: 'app-crm',
-            templateUrl: './crm.component.html',
+            selector: 'app-position',
+            templateUrl: './position.component.html',
         })
-    ], CrmComponent);
-    return CrmComponent;
+    ], PositionComponent);
+    return PositionComponent;
 }());
-exports.CrmComponent = CrmComponent;
-//# sourceMappingURL=crm.component.js.map
+exports.PositionComponent = PositionComponent;
+//# sourceMappingURL=position.component.js.map

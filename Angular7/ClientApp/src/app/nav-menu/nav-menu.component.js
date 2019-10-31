@@ -19,12 +19,13 @@ var NavMenuComponent = /** @class */ (function () {
             selected.addClass('menu-selected');
         };
         this.menuItems = [
-            { label: 'Dashboard', icon: 'fas fa-chart-line', routerLink: ['/'], command: function (event) { return handleSelected(event); } },
+            { label: 'Dashboard', icon: 'fas fa-chart-line', routerLink: ['/dashboard'], command: function (event) { return handleSelected(event); } },
             { label: 'Work order', icon: 'fas fa-briefcase', routerLink: ['/workorder'], command: function (event) { return handleSelected(event); } },
             { label: 'Task', icon: 'fas fa-tasks', routerLink: ['/task'], command: function (event) { return handleSelected(event); } },
             { label: 'Vendor', icon: 'fas fa-user', routerLink: ['/vendor'], command: function (event) { return handleSelected(event); } },
             { label: 'CRM', icon: 'fas fa-users', routerLink: ['/crm'], command: function (event) { return handleSelected(event); } },
-            { label: 'Accountant', icon: 'fas fa-file-invoice-dollar', routerLink: ['/accountant'], command: function (event) { return handleSelected(event); } }
+            { label: 'Accountant', icon: 'fas fa-file-invoice-dollar', routerLink: ['/accountant'], command: function (event) { return handleSelected(event); } },
+            { label: 'Position Justification', icon: 'fas fa-users', routerLink: ['/position'], command: function (event) { return handleSelected(event); } },
         ];
     };
     NavMenuComponent = __decorate([

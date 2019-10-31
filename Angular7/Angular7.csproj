@@ -41,9 +41,23 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\accountant\accountant.component.ts" />
+    <None Remove="ClientApp\src\app\crm\crm-routing.module.ts" />
     <None Remove="ClientApp\src\app\crm\crm.component.ts" />
+    <None Remove="ClientApp\src\app\crm\crm.menu.component.ts" />
+    <None Remove="ClientApp\src\app\crm\crm.module.ts" />
+    <None Remove="ClientApp\src\app\crm\crmchild\crm.child.component.ts" />
     <None Remove="ClientApp\src\app\dash-board\dash-board.component.ts" />
+    <None Remove="ClientApp\src\app\guard\redirect.guard.ts" />
     <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.ts" />
+    <None Remove="ClientApp\src\app\position\menu\position.menu.component.ts" />
+    <None Remove="ClientApp\src\app\position\models\position.model.ts" />
+    <None Remove="ClientApp\src\app\position\position-form.component.ts" />
+    <None Remove="ClientApp\src\app\position\position-form.resolver.service.ts" />
+    <None Remove="ClientApp\src\app\position\position-routing.module.ts" />
+    <None Remove="ClientApp\src\app\position\position.component.ts" />
+    <None Remove="ClientApp\src\app\position\position.data.ts" />
+    <None Remove="ClientApp\src\app\position\position.module.ts" />
+    <None Remove="ClientApp\src\app\position\services\position.service.ts" />
     <None Remove="ClientApp\src\app\primeng.module.ts" />
     <None Remove="ClientApp\src\app\services\dashboard.service.ts" />
     <None Remove="ClientApp\src\app\services\task.service.ts" />
@@ -61,9 +75,23 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\accountant\accountant.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\crm\crm-routing.module.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\crm\crm.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\crm\crm.menu.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\crm\crm.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\crm\crmchild\crm.child.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\dash-board\dash-board.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\guard\redirect.guard.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\nav-menu\nav-menu.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\position\menu\position.menu.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\position\models\position.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\position\position-form.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\position\position-form.resolver.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\position\position-routing.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\position\position.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\position\position.data.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\position\position.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\position\services\position.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\task.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\component\modals\task.modal.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\component\primeng.module.ts" />
@@ -80,6 +108,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ClientApp\src\app\crm\service\" />
     <Folder Include="ClientApp\src\app\interfaces\" />
     <Folder Include="ClientApp\src\app\shared\pipe\" />
   </ItemGroup>
